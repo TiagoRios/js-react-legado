@@ -1,0 +1,11 @@
+.meuStyle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 400px;
+    margin: 0 auto;
+    padding: 10px;
+    gap: 10px;
+    border: 2px solid orange;
+}

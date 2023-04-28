@@ -1,0 +1,43 @@
+html, body, #root {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .SplitPane {
+    width: 94%;
+    height: 90%;
+  }
+  
+  .SplitPane-left {
+    float: left;
+    width: 30%;
+    height: 100%;
+  }
+  
+  .SplitPane-right {
+    float: left;
+    width: 70%;
+    height: 100%;
+  }
+  
+  .Contacts {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%; 
+    background: brown;
+    border:3px solid yellow;
+  }
+  
+  .Chat {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%; 
+    background: green;
+    border:3px solid hotpink;
+  }
+  
+  p {
+    align-self: center;
+  }
