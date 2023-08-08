@@ -21,7 +21,7 @@ const element = React.createElement;
 // O react compila o código JSX para essa forma para fazer a renderização. 
 const compoent = element('div', { style: { border: '2px solid red' } },
     element('h1', { className: 'nomeAlgumaClasse', style: { border: '2px solid red' } },
-        'Texto do meu h1' + algumVariavel ),
+        'Texto do meu h1' + algumVariavel),
     element('div', { className: 'nomeAlgumaClasse', style: { border: '2px solid red' } },
         element('h2', {}, 'outro texto para h2'),
         element('p', {}, 'Algum texto dentro de p')
@@ -38,5 +38,3 @@ const componente = <div style={{ border: '2px solid red' }}>
         <p>Algum texto dentro de p</p>
     </div>
 </div>
-
-console.log(compoent, componente)

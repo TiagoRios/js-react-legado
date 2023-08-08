@@ -1,7 +1,7 @@
 import React from "react";
 import meuJsonLocal from './pessoas.json';
 
-export class Contatos extends React.Component {
+export class ConsumindoApiRest extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
