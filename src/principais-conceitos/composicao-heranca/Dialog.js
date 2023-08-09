@@ -1,5 +1,5 @@
 import { FancyBorder } from "./FancyBorder";
-import './dialogStyles.css';
+import './Dialog.css';
 
 // Um caso de especialização que resolve com composição.
 

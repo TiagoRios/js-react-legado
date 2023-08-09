@@ -1,4 +1,4 @@
-import './fancyBorderStyles.css';
+import './FancyBorder.css';
 
 /**
  * Não se sabe quais elementos filhos vão ser passados para o componente.
