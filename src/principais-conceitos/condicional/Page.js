@@ -12,7 +12,7 @@ function WarningBanner(props) {
     );
 }
 
-export class Page extends React.Component {
+export default class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = { showWarning: true };
@@ -29,7 +29,6 @@ export class Page extends React.Component {
     render() {
         return (
             <div style={{border: '5px solid blue'}}>
-                <h4>Componente Page</h4>
                 <WarningBanner warn={this.state.showWarning} />
                 <button onClick={this.handleToggleClick}>
                     {this.state.showWarning ? 'Hide warning' : 'Show warning'}

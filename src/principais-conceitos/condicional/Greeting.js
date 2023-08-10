@@ -22,11 +22,13 @@ export function Greeting(props) {
 //alternativa utilizando sintaxe de classe
 export default class GreetingClass extends React.Component {
 
-    // não funciona atribuindo a uma variável. perdi um bom tempo nisso.
+    // não funciona atribuindo a uma variável no corpo da classe. perdi um bom tempo nisso.
     // algumaVariavel = this.props.estaLogado;
-
+    // use dentro do construtor ou do método usando "this.nomeVar"
+    
     render() {
-        if (this.props.estaLogado) { // esse é usado por default. caso utilize o outro modificar essa variavel
+        this.a = this.props.estaLogado;
+        if (this.a) { // esse é usado por default. caso utilize o outro modificar essa variavel
             return <UserGreeting />;
         } else {
             return <GuestGreeting />;

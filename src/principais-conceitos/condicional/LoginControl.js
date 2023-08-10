@@ -34,7 +34,6 @@ export default class LoginControl extends React.Component {
 
         return (
             <div style={{ border: '5px solid cyan' }}>
-                <h4>Componente LoginControl</h4>
                 <GreetingClass estaLogado={isLoggedInnn} />
                 {button}
             </div>

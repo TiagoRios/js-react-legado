@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class TestarSeAprendi extends React.Component {
+export default class TestarSeAprendi extends React.Component {
     constructor(props) {
         super(props);
         this.state = { tenhoCachorro: false }
@@ -22,7 +22,7 @@ export class TestarSeAprendi extends React.Component {
                 <h2>voce tem um cachorro?</h2>
                 <h3>{this.state.tenhoCachorro ? "Eu tenho um cachorro" : "Não, eu não tenho um cachorro!"}</h3>
                 <button onClick={this.handleTenhaCachorroClick}>
-                    mudar se tenho cachorro
+                    mudar resposta
                 </button>
             </div>
         )
