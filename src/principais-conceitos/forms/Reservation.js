@@ -44,7 +44,7 @@ export class Reservation extends React.Component {
     render() {
         return (<>
             <h4>Componente com tag &lt;input&gt; e &lt;select&gt; controlada</h4>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <label htmlFor='isGoing'>Esta indo:</label>
                 <input id='isGoing'
                     name="isGoing"
@@ -68,7 +68,11 @@ export class Reservation extends React.Component {
                     value={this.state.numberOfGuests}
                     onChange={this.handleInputChange}
                 />
-            </form>
+            </form> 
+            
+            <p>isGoing: {this.state.isGoing ? "true" : "false"}</p>
+            <p>numberOfGuests: {this.state.numberOfGuests}</p>
+            <p>todosVaoVim: {this.state.todosVaoVim ? "true" : "false"}</p>
         </>
         )
     }
