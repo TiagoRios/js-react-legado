@@ -1,28 +1,26 @@
 import TituloMaisToggle from "../utils-components/TituloMaisToggle"
 
 import AllComponentesProps from "./componentes-props/AllComponentesProps";
-import AllComposicaoHeranca from "./composicao-heranca/AllComposicaoHeranca";
-import AllCondicional from "./condicional/AllCondicional";
-import AllElevandoState from "./elevando-state/AllElevandoState";
+import Clock from "./states-ciclo-vida/Clock";
 import AllEvents from "./events/AllEvents";
-import AllForms from "./forms/AllForms";
+import AllCondicional from "./condicional/AllCondicional";
 import AllListasEChaves from "./listas-e-chaves/AllListasEChaves";
+import AllForms from "./forms/AllForms";
+import AllElevandoState from "./elevando-state/AllElevandoState";
+import AllComposicaoHeranca from "./composicao-heranca/AllComposicaoHeranca";
+import FilterableProductTable from "./pensando-jeito-react/FilterableProductTable";
 
 export default function AllPrincipaisConceitos() {
     return (<>
         <TituloMaisToggle nome="Componentes e props" componente={<AllComponentesProps />} />
-        <TituloMaisToggle nome="Composição e herança" componente={<AllComposicaoHeranca />} />
-        <TituloMaisToggle nome="Condicional" componente={<AllCondicional />} />
-        <TituloMaisToggle nome="Elevando o estado" componente={<AllElevandoState />} />
+        <TituloMaisToggle nome="States e ciclo de vide" componente={<Clock />} />
         <TituloMaisToggle nome="Events" componente={<AllEvents />} />
-        <TituloMaisToggle nome="Forms" componente={<AllForms />} />
+        <TituloMaisToggle nome="Condicional" componente={<AllCondicional />} />
         <TituloMaisToggle nome="Listas e chaves" componente={<AllListasEChaves />} />
-
-        <hr />
-        <h2>Não criados:</h2>
-
-        <TituloMaisToggle nome="States" componente={<h1>componente</h1>} />
-        <TituloMaisToggle nome="Pensando React" componente={<h1>componente</h1>} />
+        <TituloMaisToggle nome="Forms" componente={<AllForms />} />
+        <TituloMaisToggle nome="Elevando o estado" componente={<AllElevandoState />} />
+        <TituloMaisToggle nome="Composição e herança" componente={<AllComposicaoHeranca />} />
+        <TituloMaisToggle nome="Pensando do jeito React" componente={<FilterableProductTable />} />
     </>
     )
 }

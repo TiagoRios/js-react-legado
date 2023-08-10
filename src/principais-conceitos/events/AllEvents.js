@@ -4,7 +4,7 @@ import Titulo from "../../utils-components/Titulo";
 
 export default function AllEvents() {
     return (<>
-        <Titulo title="ToggleButtons" component={<ExibirToggleButtons />} />
-        <Titulo title="LoggingButtons" component={<ExibirLoggingButtons />} />
+        <Titulo title="ToggleButtons.js" component={<ExibirToggleButtons />} />
+        <Titulo title="LoggingButtons.js" component={<ExibirLoggingButtons />} />
     </>)
 }

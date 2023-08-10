@@ -6,7 +6,7 @@ import { SearchBar } from './SearchBar';
 import { PRODUCTS } from './productList';
 import './styles.css';
 
-export class FilterableProductTable extends React.Component {
+export default class FilterableProductTable extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

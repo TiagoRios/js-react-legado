@@ -14,7 +14,7 @@ import React from "react";
  * @see componentDidMount executa algo depois que renderizar componente no DOM.
  * @see componentWillUnmount limpar o DOM produzido quando componente for removido.
  */
-export class Clock extends React.Component {
+export default class Clock extends React.Component {
     //Componentes de classe é obrigatório passar os PROPS no construtor
     constructor(props) {
         super(props);
