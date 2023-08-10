@@ -82,7 +82,6 @@ export default class ExibirToggleButtons extends React.Component {
   render(){
     return (
       <div style={{backgroundColor:'yellow'}}>
-        <h5>Toggle Buttons</h5>
         <Toggle />
         <Toggle2 />
         <Toggle3 />

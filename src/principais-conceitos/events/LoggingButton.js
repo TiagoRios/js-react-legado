@@ -57,8 +57,7 @@ export class LoggingButton3 extends React.Component {
 export default class ExibirLoggingButtons extends React.Component{
   render(){
     return (
-    <div style={{backgroundColor:'gray'}}>
-      <h5>Loggings Buttons</h5>
+    <div style={{backgroundColor:'green'}}>
       <LoggingButton3 />
       <LoggingButton2 />
       <LoggingButton />
