@@ -1,11 +1,12 @@
 import React from "react";
 
+// usado para nome propriedade computada dinamicamente.
 const scaleNames = {
     celsius: 'Celsius',
     fahrenheit: 'Fahrenheit'
 };
 
-export class TemperatureInput extends React.Component {
+export default class TemperatureInput extends React.Component {
     constructor(props) {
         super(props);
         this.handleChange = this.handleChange.bind(this);

@@ -2,11 +2,12 @@
  * Função que verifica se a temperatura é capaz de ferver a água
  * @returns um compenente paragrafo com a resposta se ferve ou não.
  */
-export function BoilingVerdict(props) {
+export default function BoilingVerdict({ scale, temperature }) {
 
-  if ((props.scale === 'celsius' && props.temperature >= 100) || (props.scale === 'fahrenheit' && props.temperature >= 212)) {
-    return <p>A água ferveria.</p>;
-  }else{
-    return <p>A água não ferveria.</p>;
+  if ((scale === 'celsius' && temperature >= 100) ||
+    (scale === 'fahrenheit' && temperature >= 212)) {
+    return <p style={{color:"red"}}>A água ferveria.</p>;
+  } else {
+    return <p style={{color:"yellow"}}>A água não ferveria.</p>;
   }
 }
