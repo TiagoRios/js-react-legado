@@ -1,7 +1,7 @@
 import React from "react";
 import meuJsonLocal from './pessoas.json';
 
-export class ConsumindoApiRest extends React.Component {
+export default class ConsumindoApiRest extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,12 +31,12 @@ export class ConsumindoApiRest extends React.Component {
     render() {
         return (
             <div>
-                <h1>Consumindo uma API externa e/ou local:</h1>
+                <h2>Info pessoas</h2>
                 <ul id='authors'>
                     {this.state.pessoas.map((p) =>
-                        <li key={p.login.uuid}>{p.name.title}. {p.name.first} {p.name.last} <br/> 
-                        email: {p.email} <br />
-                        cidade: {p.location.city}<br/><hr/>
+                        <li key={p.login.uuid}>{p.name.title}. {p.name.first} {p.name.last} <br />
+                            email: {p.email} <br />
+                            cidade: {p.location.city}<br /><hr />
                         </li>
                     )}
                 </ul>

@@ -4,7 +4,7 @@ const estilo = {
     display: "inline"
 }
 
-export function ConteudoPasta({ nome, componente }) {
+export default function TituloMaisToggle({ nome, componente }) {
     let [mostrar, setMostrar] = React.useState(false);
 
     function handleMostrarClick() {

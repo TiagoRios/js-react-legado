@@ -4,7 +4,7 @@ html, body, #root {
   }
   
   .SplitPane {
-    width: 94%;
+    width: 100%;
     height: 90%;
   }
   
@@ -15,7 +15,7 @@ html, body, #root {
   }
   
   .SplitPane-right {
-    float: left;
+    float: right;
     width: 70%;
     height: 100%;
   }

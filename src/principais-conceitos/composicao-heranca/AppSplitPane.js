@@ -26,9 +26,9 @@ function SplitPane(props) {
 }
 
 function Contacts() {
-    return <div className="Contacts"><p>Area de contatos</p></div>;
+    return <div className="Contacts"><p>Area Contatos</p></div>;
 }
 
 function Chat() {
-    return <div className="Chat"><p>Area de chat</p></div>;
+    return <div className="Chat"><p>Area Chat</p></div>;
 }

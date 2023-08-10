@@ -1,4 +1,5 @@
 .FancyBorder {
+    width: auto;
     padding: 10px 10px;
     border: 10px solid;
 }
