@@ -1,4 +1,5 @@
 import React from "react";
+import Titulo from "../../utils-components/Titulo";
 
 /**
  * Componente React que representa um relógio e mostra as horas.
@@ -50,11 +51,12 @@ export default class Clock extends React.Component {
     }
 
     render() {
-        return (<div style={{border: '5px solid brown'}}>
-            <h4>componente Clock</h4>
-            <h1>Relógio!</h1>
-            {/* usando o state ao inves do props */}
-            <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+        return (<div style={{ border: '5px solid brown' }}>
+            <Titulo title="Clock.js" component={<>
+                <h1>Relógio!</h1>
+                {/* usando o state ao inves do props */}
+                <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+            </>} />
         </div>);
     }
 }

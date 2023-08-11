@@ -1,6 +1,8 @@
+import HeaderH2 from "./HeaderH2";
+
 export default function Titulo({ title, component }) {
     return (<>
-        <h2>{title}</h2>
+        <HeaderH2 color="lightgreen">{title}</HeaderH2>
         {component}
         <hr />
     </>)

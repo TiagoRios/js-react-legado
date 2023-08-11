@@ -1,4 +1,4 @@
-import React from "react";
+ import React from "react";
 
 // Isso geralmente é implementado ao anexar um click ao objeto de janela que fecha o popover:
 // Esse exemplo funciona bem para usuarios com ponteiros ou mouse.
@@ -11,7 +11,7 @@ import React from "react";
 // Quebra a acessibilidade
 
 // Use este componente para testar: <JuntandoClickForaExemploDeBlur/>
-export class ClickForaExemplo extends React.Component {
+export default class ClickForaExemplo extends React.Component {
     constructor(props) {
         super(props);
 

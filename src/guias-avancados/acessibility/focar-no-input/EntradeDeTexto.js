@@ -4,7 +4,7 @@ import './entradaDeTexto.css'
 
 // define a 'ref' no construtor: this.inputDeTexto = React.createRef();
 // usa a 'ref' na função manipuladora: this.inputTexto.current.focus();
-export class EntradaDeTexto extends React.Component {
+export default class EntradaDeTexto extends React.Component {
     constructor(props) {
         super(props);
         // Cria um ref para guardar o inputDeTexto no DOM
@@ -54,29 +54,25 @@ class Form extends React.Component {
         // Use a `ref` callback para guardar a referencia do texto no input dentro do DOM 
         // elemento em um campo (por exemplo, this.inputDeTexto).
         */
-        return (
-            <><h4>Entrada de texto</h4>
-                <form>
-                    <label htmlFor='loginId' name='labelLogin'>Insira o login:</label><br />
-                    <input id='loginId' name="login"
-                        type="text"
-                        // olha o tamanho dessa instrução.
-                        // outra maneira com seria 'ref.inputDeLogin' com forwardRef.
-                        ref={this.props.refe.inputDeLogin}
-                    /><br />
-                    <label htmlFor='senhaId' name='labelSenha'>Insira a senha:</label><br />
-                    <input id='senhaId' name="senha"
-                        type="password"
-                        ref={this.props.refe.inputDeSenha}
-                    /><br />
-                    {/* recebendo um objeto com dois tipos de onClick */}
-                    <input type='button' value='foco login' onClick={this.props.onClick.login} />
-                    <input type='button' value='foco senha' onClick={this.props.onClick.senha} />
-
-                    <hr />
-                </form>
-            </>
-        )
+        return (<>
+            <form>
+                <label htmlFor='loginId' name='labelLogin'>Insira o login:</label><br />
+                <input id='loginId' name="login"
+                    type="text"
+                    // olha o tamanho dessa instrução.
+                    // outra maneira com seria 'ref.inputDeLogin' com forwardRef.
+                    ref={this.props.refe.inputDeLogin}
+                /><br />
+                <label htmlFor='senhaId' name='labelSenha'>Insira a senha:</label><br />
+                <input id='senhaId' name="senha"
+                    type="password"
+                    ref={this.props.refe.inputDeSenha}
+                /><br />
+                {/* recebendo um objeto com dois tipos de onClick */}
+                <input type='button' value='foco login' onClick={this.props.onClick.login} />
+                <input type='button' value='foco senha' onClick={this.props.onClick.senha} />
+            </form>
+        </>)
     }
 }
 
@@ -98,8 +94,6 @@ class Form extends React.Component {
 //             {/* recebendo um objeto com dois tipos de onClick */}
 //             <input type='button' value='foco login' onClick={props.onClick.login} />
 //             <input type='button' value='foco senha' onClick={props.onClick.senha} />
-
-//             <hr />
 //         </form>
 //     </>
 // ))

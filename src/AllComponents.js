@@ -7,10 +7,6 @@ import AllGuiasAvancados from "./guias-avancados/AllGuiasAvancados";
 import AllPrincipaisConceitos from "./principais-conceitos/AllPrincipaisConceitos";
 
 export class AllComponents extends React.Component {
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         return (<>
             <Details summary="App React Inicial"><AppReact /></Details>

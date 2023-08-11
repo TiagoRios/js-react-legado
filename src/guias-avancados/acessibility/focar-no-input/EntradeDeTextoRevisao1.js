@@ -2,7 +2,7 @@ import React from "react";
 import './entradaDeTexto.css'
 
 // Utilize o exemplo EntradaDeTexto para revisar o conteúdo.
-export class EntradaDeTextoRevisao1 extends React.Component {
+export default class EntradaDeTextoRevisao1 extends React.Component {
     constructor(props) {
         super(props);
         // state para revisão de componentes controlados.
@@ -37,7 +37,6 @@ export class EntradaDeTextoRevisao1 extends React.Component {
     render() {
         return (
             <>
-                <h4>Entrada de texto revisão 1</h4>
                 <form>
                     <label forHtml='algumTextoId'>Escreva algum texto:</label><br />
                     <input id='algumTextoId'

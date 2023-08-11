@@ -1,7 +1,7 @@
 import React from "react";
 
 // Use este componente para testar: <JuntandoClickForaExemploDeBlur/>
-export class ExamploDeBlur extends React.Component {
+export default class ExemploDeBlur extends React.Component {
     constructor(props) {
         super(props);
 
