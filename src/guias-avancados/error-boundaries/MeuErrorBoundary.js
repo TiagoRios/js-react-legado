@@ -63,10 +63,10 @@ export class MeuErrorBoundary extends React.Component {
         if (this.state.hasError) {
             // Você pode renderizar qualquer UI alternativa
             return (<>
-                <div style={{ margin: '5% auto', width: '60%' }}>
-                    <h1 style={{ fontSize: '5em' }}>Ops! Algo deu errado.</h1>
+                <div style={{ margin: '0 auto', width: '60%' }}>
+                    <h1 style={{ fontSize: '2em' }}>Ops! Algo deu errado.</h1>
                     <br />
-                    <details style={{ whiteSpace: 'pre-wrap', fontSize: '1.8em' }}>
+                    <details style={{ whiteSpace: 'pre-wrap', fontSize: '1.5em' }}>
                         {/* Exibe o nome do erro. */}
                         '{this.displayName}'
                         <br />

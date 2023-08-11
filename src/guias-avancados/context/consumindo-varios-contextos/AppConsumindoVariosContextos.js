@@ -1,5 +1,6 @@
 import React from 'react';
 import { MeuErrorBoundary } from '../../error-boundaries/MeuErrorBoundary';
+import HeaderH2 from '../../../utils-components/HeaderH2';
 
 // Theme context, default to light theme
 const ThemeContext = React.createContext('tema-Light-padrao');
@@ -9,12 +10,12 @@ const UserContext = React.createContext({
     name: 'user-Guest-padrao',
 });
 
-export class AppConsumindoVariosContextos extends React.Component {
+export default class AppConsumindoVariosContextos extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            theme: 'TemaColorido',
-            name: { name: 'UserAtual' },
+            theme: 'tema-dark',
+            name: { name: 'Devimon' },
         };
     }
 
@@ -26,18 +27,21 @@ export class AppConsumindoVariosContextos extends React.Component {
         return (
             <>
                 <MeuErrorBoundary>
+                    <HeaderH2>Usando valores do state - NÂO CONTEXTO</HeaderH2>
                     {/* não utilizar definindo componente dentro do value. 
                 <UserContext.Provider value = {{name: 'meuNome' }} > */}
                     <ThemeContext.Provider value={this.state.theme}>
                         {/* name esta errado para poder entrar no componente error boundary */}
-                        <UserContext.Provider value={this.state.namet}>
+                        <UserContext.Provider value={this.state.name}>
                             <Content />
                         </UserContext.Provider>
                     </ThemeContext.Provider>
 
                     {/* Esse componente abaixo utiliza os valores default de React.createContext */}
 
+                    <HeaderH2>Usando valores default de 2 contextos</HeaderH2>
                     <Content />
+
                 </MeuErrorBoundary>
             </>
         );
@@ -52,7 +56,6 @@ function Content() {
                 <UserContext.Consumer>
                     {user => (
                         <div style={{ border: '2px solid red' }}>
-                            <h2>Componente usando 2(dois) contextos</h2>
                             <div><strong>user: {user.name}</strong></div>
                             <div><strong>theme: {theme}</strong></div>
                         </div>

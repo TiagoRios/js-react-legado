@@ -1,5 +1,5 @@
 import React from "react";
-import { theme } from "../conteudo-site/themes";
+import { theme } from "../themes";
 
 // Make sure the shape of the default value passed to
 // createContext matches the shape that the consumers expect!

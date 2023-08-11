@@ -1,9 +1,10 @@
 import React from 'react';
-import { theme } from "../conteudo-site/themes";
+
+import { theme } from "../themes";
 import { ThemeContext } from './theme-context';
 import ThemeTogglerButton from './theme-toggler-button';
 
-export class AppContextoAninhado extends React.Component {
+export default class AppContextoAninhado extends React.Component {
   constructor(props) {
     super(props);
 

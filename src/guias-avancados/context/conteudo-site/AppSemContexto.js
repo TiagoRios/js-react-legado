@@ -1,38 +1,18 @@
 import React from 'react';
+import { theme } from '../themes';
 
 // contexto light é o padrão
 // const ThemeContext = React.createContext('light');
 
-const theme = {
-    dark: {
-        backgroundColor: 'black',
-        padding: '40px',
-        border: '2px solid red',
-        fontSize: '60px',
-        color: 'white',
-        borderRadius: '20px'
-    },
-    light: {
-        backgroundColor: 'white',
-        padding: '40px',
-        border: '2px solid cyan',
-        fontSize: '60px',
-        color: 'green',
-        borderRadius: '20px'
-    }
-}
-
-export class AppSemContext extends React.Component {
+export default class AppSemContext extends React.Component {
     render() {
-        return (
-            <div>
-                <h1>Botão que recebe props de vários componentes intermediários</h1>
-                <h2>Não utiliza 'context'</h2>
+        return (<>
+            <h3>Props são passadas entre vários componentes intermediários</h3>
+            <div style={{ display: "flex" }}>
                 <Toolbar theme={theme.dark} />
-                <hr />
                 <Toolbar theme={theme.light} />
             </div>
-        );
+        </>);
     }
 }
 
@@ -61,7 +41,6 @@ class Button extends React.Component {
     render() {
         return (<>
             <button style={this.props.theme}>Botão SEM Context</button>
-        </>
-        )
+        </>)
     }
 }

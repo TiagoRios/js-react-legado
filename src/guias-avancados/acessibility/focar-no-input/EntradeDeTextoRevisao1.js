@@ -38,7 +38,7 @@ export default class EntradaDeTextoRevisao1 extends React.Component {
         return (
             <>
                 <form>
-                    <label forHtml='algumTextoId'>Escreva algum texto:</label><br />
+                    <label htmlFor='algumTextoId'>Escreva algum texto:</label><br />
                     <input id='algumTextoId'
                         type='text'
                         name='algumTexto'

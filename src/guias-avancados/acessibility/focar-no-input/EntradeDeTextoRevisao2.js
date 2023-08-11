@@ -35,7 +35,7 @@ class EntradaDeTextoRevisao2 extends React.Component {
     render() {
         return (<>
             <h4>recebendo 'ref' via props do pai</h4>
-            <label forHtml='inputTextoId'>Entre com um texto:</label><br />
+            <label htmlFor='inputTextoId'>Entre com um texto:</label><br />
             <input
                 id="inputTextoId"
                 type='text'
