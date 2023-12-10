@@ -1,6 +1,6 @@
-export default function LoginButton(props) {
+export default function LoginButton({ meuOnClick }) {
     return (
-        <button onClick={props.meuOnClick}>
+        <button onClick={meuOnClick}>
             Login
         </button>
     );

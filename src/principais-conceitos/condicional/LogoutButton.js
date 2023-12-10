@@ -1,7 +1,7 @@
-export default function LogoutButton(props) {
-    return (
-      <button onClick={props.meuOnClick}>
-        Logout
-      </button>
-    );
-  }
+export default function LogoutButton({ meuOnClick }) {
+  return (
+    <button onClick={meuOnClick}>
+      Logout
+    </button>
+  );
+}
