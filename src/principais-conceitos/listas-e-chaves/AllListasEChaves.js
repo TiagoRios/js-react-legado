@@ -1,15 +1,21 @@
+
 import Blog from "./Blog";
+import Header from "../../utils-components/Header";
 import ListaClass from "./ListaClass";
 import ListaFunction from "./ListaFunction";
 
-import { posts } from "./Blog";
-import { numeros } from "./numeros";
-import Titulo from "../../utils-components/Titulo";
+import numerosMock from "./numeros";
+import postsMock from "./posts";
 
 export default function AllListasEChaves() {
     return (<>
-        <Titulo title="ListaClass.js" component={<ListaClass arr={numeros} />} />
-        <Titulo title="ListaFunction.js" component={<ListaFunction arr={numeros} />} />
-        <Titulo title="Blog.js" component={<Blog posts={posts} />} />
+        <Header title="ListaClass.js" />
+        <ListaClass arr={numerosMock} />
+
+        <Header title="ListaFunction.js" />
+        <ListaFunction arr={numerosMock} />
+
+        <Header title="Blog.js" />
+        <Blog posts={postsMock} />
     </>)
 }
