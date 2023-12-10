@@ -1,10 +1,13 @@
 import ExibirToggleButtons from "./Toggle";
 import ExibirLoggingButtons from "./LoggingButton";
-import Titulo from "../../utils-components/Titulo";
+import Header from "../../utils-components/Header";
 
 export default function AllEvents() {
     return (<>
-        <Titulo title="ToggleButtons.js" component={<ExibirToggleButtons />} />
-        <Titulo title="LoggingButtons.js" component={<ExibirLoggingButtons />} />
+        <Header title="ToggleButtons.js" />
+        <ExibirToggleButtons />
+
+        <Header title="LoggingButtons.js" />
+        <ExibirLoggingButtons />
     </>)
 }

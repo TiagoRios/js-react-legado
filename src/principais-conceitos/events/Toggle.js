@@ -1,9 +1,12 @@
 import React from 'react';
 
-export class Toggle extends React.Component {
+export class ToggleVinculacaoBind extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isToggleOn: true };
+
+    this.state = {
+      isToggleOn: true
+    };
 
     // Aqui utilizamos o `bind` para que o `this` funcione dentro da nossa callback
     this.handleClick = this.handleClick.bind(this);
@@ -24,22 +27,20 @@ export class Toggle extends React.Component {
   }
 }
 
-/**
- * Sintaxe com arrow function
- * 
- * não recomendado dessa forma. problemas de desempenho podem aparecer.
- * 
-*/
-
-export class Toggle2 extends React.Component {
+// Problemas de desempenho com arrow function callback.
+export class ToggleArrowFuntion extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isToggleOn: true, algumOutroAtributo:''};
+
+    this.state = {
+      algumOutroAtributo: '',
+      isToggleOn: true,
+    };
   }
 
   handleClick() {
     this.setState(prevState => ({
-      algumOutroAtributo:'asdf',
+      algumOutroAtributo: 'asdf',
       isToggleOn: !prevState.isToggleOn
     }));
   }
@@ -53,16 +54,15 @@ export class Toggle2 extends React.Component {
   }
 }
 
-/**
- * Sintaxe utilizando campo de classe.
- */
-export class Toggle3 extends React.Component {
+export class ToggleCampoClasse extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isToggleOn: true };
+
+    this.state = {
+      isToggleOn: true
+    };
   }
 
-  // sintaxe de campo de classe.
   handleClick = () => {
     this.setState(prevState => ({
       isToggleOn: !prevState.isToggleOn
@@ -79,12 +79,12 @@ export class Toggle3 extends React.Component {
 }
 
 export default class ExibirToggleButtons extends React.Component {
-  render(){
+  render() {
     return (
-      <div style={{backgroundColor:'yellow'}}>
-        <Toggle />
-        <Toggle2 />
-        <Toggle3 />
+      <div style={{ backgroundColor: 'yellow' }}>
+        <ToggleVinculacaoBind />
+        <ToggleArrowFuntion />
+        <ToggleCampoClasse />
       </div>
     )
   }
