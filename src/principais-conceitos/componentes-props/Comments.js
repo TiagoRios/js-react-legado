@@ -1,45 +1,57 @@
-export let autor111 = {
-  name: 'james',
-  nameAlt: 'Avatar da pessoa',
-  avatarUrl: 'https://www.shutterstock.com/image-vector/young-smiling-man-adam-avatar-600w-2107967969.jpg',
-}
-
-// <Comment author={autor111} text='algumm texto aqui asdf' date='2023' />
-
-export function Comment(props) {
+export function Comment({ author, date, text }) {
     return (
-        <div className="Comment" style={{
-            textAlign: 'center', border: '5px solid blue',
-            backgroundColor: 'gainsboro'
-        }}>
+        <div
+            className="Comment"
+            style={{
+                backgroundColor: 'gainsboro',
+                border: '5px solid blue',
+                textAlign: 'center',
+            }}
+        >
             <h4>Componente Comment</h4>
-            <UserInfo user={props.author} />
+
+            <UserInfo user={author} />
+
             <div className="Comment-text">
-                {props.text}
+                {text}
             </div>
+
             <div className="Comment-date">
-                {props.date}
+                {date}
             </div>
         </div>);
 }
 
-function UserInfo(props) {
-    return (<div className="UserInfo" style={{ border: '5px solid yellow', backgroundColor: 'gray' }}>
-        <h4>Componente UserInfo</h4>
-        <Avatar user={props.user} />
-        <div className="UserInfo-name">
-            {props.user.name}
+function UserInfo({ user }) {
+    return (
+        <div
+            className="UserInfo"
+            style={{
+                backgroundColor: 'gray',
+                border: '5px solid yellow',
+            }}
+        >
+            <h4>Componente UserInfo</h4>
+
+            <Avatar user={user} />
+
+            <div className="UserInfo-name">
+                {user.name}
+            </div>
         </div>
-    </div>)
+    )
 }
 
-function Avatar(props) {
+function Avatar({ user }) {
     return (
         <div style={{ border: '5px solid blue', backgroundColor: 'lightgreen' }}>
             <h4>Componente Avatar</h4>
-            <img className="Avatar" style={{ height: '160px', width: '160px' }}
-                src={props.user.avatarUrl}
-                alt={props.user.nameAlt}
+
+            <img
+                alt={user.nameAlt}
+                className="Avatar"
+                src={user.avatarUrl}
+                style={{ height: '160px', width: '160px' }}
             />
         </div>
     )

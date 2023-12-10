@@ -1,27 +1,34 @@
 import React from "react";
 
-import Titulo from "../../utils-components/Titulo";
-
-import { Comment, autor111 } from "./Comments";
+import { Comment } from "./Comments";
 import { PrimeiroComponent } from "./PrimeiroComponent";
-
 import { WelcomeWithClass } from "./WelcomeWithClass";
 import { WelcomeWithFunction } from "./WelcomeWithFunction";
 
+import Header from "../../utils-components/Header";
+
+export let autorMock = {
+    name: 'james',
+    nameAlt: 'Avatar da pessoa',
+    avatarUrl: 'https://www.shutterstock.com/image-vector/young-smiling-man-adam-avatar-600w-2107967969.jpg',
+};
+
 export default function AllComponentesProps() {
-    return (
-        <>
-            <Titulo title="Comments.js"
-                component={<Comment author={autor111} text='algumm texto aqui asdf' date='2023' />} />
+    return (<>
+        <Header title="Comments.js" />
+        <Comment
+            author={autorMock}
+            date='2023'
+            text='algumm texto aqui asdf'
+        />
 
-            <Titulo title="PrimeiroComponent.js"
-                component={<PrimeiroComponent name="meuNome" />} />
+        <Header title="PrimeiroComponent.js" />
+        <PrimeiroComponent name="meuNome" />
 
-            <Titulo title="WelcomeWithClass.js"
-                component={<WelcomeWithClass name="AlgumNome" description="AlgumaDescrição" />} />
+        <Header title="WelcomeWithClass.js" />
+        <WelcomeWithClass description="AlgumaDescrição" name="AlgumNome" />
 
-            <Titulo title="WelcomeWithFunction.js"
-                component={<WelcomeWithFunction name="AlgumNome" description="AlgumaDescrição" />} />
-        </>
-    )
+        <Header title="WelcomeWithFunction.js" />
+        <WelcomeWithFunction description="AlgumaDescrição" name="AlgumNome" />
+    </>)
 }

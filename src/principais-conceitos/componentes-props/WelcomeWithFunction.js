@@ -1,9 +1,12 @@
 import React from "react";
 
-export function WelcomeWithFunction(props) {
-    return (<div className="divisao" style={{backgroundColor:'darkgray'}}>
-        <h1>Ola, {props.name}</h1>
-        <h1>descrição: {props.description}</h1>
-    </div>
+const objetoComEstilos = { backgroundColor: 'darkgray' };
+
+export function WelcomeWithFunction({ description, name }) {
+    return (
+        <div className="divisao" style={objetoComEstilos}>
+            <h1>Ola, {name}</h1>
+            <h2>descrição: {description}</h2>
+        </div>
     )
 }
