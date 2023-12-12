@@ -1,9 +1,13 @@
-import { Dialog } from "./Dialog";
+import React from "react";
 
-// Um caso especial de do componente Dialog.
-// Um componente mais especifico renderiza um componente mais genérico.
-export function WelcomeDialog() {
+import Dialog from "./Dialog";
+
+// Componente especializado renderizando um mais generico.
+export default function WelcomeDialog() {
   return (
-    <Dialog title='Bem vindo' message='Agradecemos por visitar a nossa espaço nave!' />
+    <Dialog
+      message='Agradecemos por visitar a nossa espaço nave!'
+      title='Bem vindo'
+    />
   )
 }

@@ -1,25 +1,23 @@
 import './AppSplitPane.css';
 
-export function AppSplitPane() {
+export default function AppSplitPane() {
     return (
         <SplitPane
-            left={
-                <Contacts />
-            }
-            right={
-                <Chat />
-            } />
+            left={<Contacts />}
+            right={<Chat />}
+        />
     );
 }
 
-function SplitPane(props) {
+function SplitPane({ left, right }) {
     return (
         <div className="SplitPane">
             <div className="SplitPane-left">
-                {props.left}
+                {left}
             </div>
+
             <div className="SplitPane-right">
-                {props.right}
+                {right}
             </div>
         </div>
     );

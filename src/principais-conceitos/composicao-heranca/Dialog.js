@@ -1,18 +1,20 @@
-import { FancyBorder } from "./FancyBorder";
+import React from "react";
+
 import './Dialog.css';
+import FancyBorder from "./FancyBorder";
 
-// Um caso de especialização que resolve com composição.
-
-export function Dialog(props) {
+export default function Dialog({ children, message, title }) {
   return (
-    <FancyBorder color="hotpink"> {/*cores hotpink ou blue */} 
+    <FancyBorder color="hotpink"> {/*cores hotpink ou blue */}
       <h1 className="Dialog-title">
-        {props.title}
+        {title}
       </h1>
+
       <p className="Dialog-message">
-        {props.message}
+        {message}
       </p>
-      {props.children}
+
+      {children}
     </FancyBorder>
   );
 }

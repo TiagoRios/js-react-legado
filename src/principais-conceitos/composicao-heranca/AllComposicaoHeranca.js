@@ -1,29 +1,31 @@
-import Titulo from "../../utils-components/Titulo";
+import Header from "../../utils-components/Header";
 
-import { FancyBorder } from "./FancyBorder";
-import { AppSplitPane } from "./AppSplitPane";
-
-import { Dialog } from "./Dialog";
-import { SignUpDialog } from "./SignUpDialog";
-import { WelcomeDialog } from "./WelcomeDialog";
+import AppSplitPane from "./AppSplitPane";
+import Dialog from "./Dialog";
+import FancyBorder from "./FancyBorder";
+import SignUpDialog from "./SignUpDialog";
+import WelcomeDialog from "./WelcomeDialog";
 
 const AllComposicaoHeranca = () => {
     return (<div style={{ width: "97%" }}>
-        <Titulo title="AppSplitPane.js"
-            component={<AppSplitPane />} />
-        
-        <Titulo title="FancyBorder.js"
-            component={<FancyBorder color="blue">Componente filho</FancyBorder>} />
-        
-        <Titulo title="Dialog.js"
-            component={<Dialog title="título da msg" message="Msg do dialogo aqui">&lt;ComponentefilhoParaRenderizar /&gt; </Dialog>} />
-        
-        <Titulo title="WelcomeDialog.js"
-            component={<WelcomeDialog />} />
-        
-        <Titulo title="SignUpDialog.js"
-            component={<SignUpDialog />} />
+        <Header title="AppSplitPane.js" />
+        <AppSplitPane />
 
+        <Header title="FancyBorder.js" />
+        <FancyBorder color="blue">
+            Componente filho
+        </FancyBorder>
+
+        <Header title="Dialog.js" />
+        <Dialog message="Msg do dialogo aqui" title="título da msg">
+            &lt;ComponentefilhoParaRenderizar /&gt;
+        </Dialog>
+
+        <Header title="WelcomeDialog.js" />
+        <WelcomeDialog />
+
+        <Header title="SignUpDialog.js" />
+        <SignUpDialog />
     </div>)
 }
 
