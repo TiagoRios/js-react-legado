@@ -1,78 +1,108 @@
 import React from 'react';
 
-import { ProductRow } from './ProductRow';
-import { ProductCategoryRow } from './ProductCategoryRow';
+import ProductCategoryRow from './ProductCategoryRow';
+import ProductRow from './ProductRow';
 
-// Dentro da função o filtro pode ser feito com ou sem RegExp.
-function filtrarDadosLista(arr, textoParaFiltrar, verificador) {
-    let rows = [];
-    let lastCategory = null;
-
-    // RegExp literal somente funciona para para padroes estáticos.
-    // RegExp é montada dinamicamente. Devo utilizar notação de obj RegExp.
-    let regExpTextoParaFiltrar = new RegExp('[a-zA-Z ]*'+ textoParaFiltrar, 'i', 'g');
-    
-    arr.forEach((product) => {
-        
-        // Devo escolher somente uma das maneiras para fazer a filtragem:
-
-        // Não utiliza RegExp
-        // devo transformar tudo em minusculo antes de fazer a busca no index.
-        if (product.name.toLowerCase().indexOf(textoParaFiltrar.toLowerCase()) === -1) {
-            return;
-        }
-
-        // Utiliza RegExp
-        if (product.name.search(regExpTextoParaFiltrar)) {
-            return;
-        }
-
-        if (verificador && !product.stocked) {
-            return;
-        }
-
-        if (product.category !== lastCategory) {
-            rows.push(
-                <ProductCategoryRow
-                    category={product.category}
-                    key={product.category} />
-            );
-        }
-        rows.push(
-            <ProductRow
-                product={product}
-                key={product.name} />
-        );
-        lastCategory = product.category;// prestar atenção nessa instrução.
-    });
-    return rows;
-}
-
-// Somente monta a tabela de produtos original sem filtros.
-export class ProductTable extends React.Component {
+// Monta a tabela de produtos original sem filtros.
+export default class ProductTable extends React.Component {
     render() {
-
-        let checked = this.props.checked;
-        let produtos = this.props.products;
-        let textoParaFiltrar = this.props.textoParaFiltrar;
+        const {
+            nomeProduto,
+            products,
+            somenteEmEstoque,
+        } = this.props
 
         return (
             <table style={{
                 border: '2px solid blue',
-                // somente posso colocar borda em uma tag <TR> com isso.
-                borderCollapse: 'collapse'
+                borderCollapse: 'collapse',
             }}>
                 <thead style={{ border: '2px solid magenta' }}>
                     <tr style={{ border: '2px solid black' }}>
-                        <th style={{ border: '2px solid hotpink' }}>Name</th>
-                        <th>Price</th>
+                        <th style={{ border: '2px solid hotpink' }}>
+                            Name
+                        </th>
+                        <th>
+                            Price
+                        </th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    {/* retorna componentes <TR> com itens filtrados */}
-                    {filtrarDadosLista(produtos, textoParaFiltrar, checked)}
+                    {filtrarListaProdutos(products, nomeProduto, somenteEmEstoque)}
                 </tbody>
             </table>
         );
     }
+}
+
+function filtrarListaProdutos(listaProdutos, nomeProduto, somenteEmEstoque) {
+    let lastCategory = null;
+    let listaProdutoFiltrado = [];
+
+    listaProdutos.forEach((product) => {
+        if (!isProdutoFoiEncontrado(product, nomeProduto)) {
+            return;
+        }
+
+        if (!isProdutoEstocado(product, somenteEmEstoque)) {
+            return;
+        }
+
+        if (!isProdutoNaMesmaCategoria(product, lastCategory)) {
+            adicionarNovaCategoria(listaProdutoFiltrado, product);
+        }
+
+        adicionarNovoProduto(listaProdutoFiltrado, product);
+
+        lastCategory = product.category; // prestar atenção nessa instrução.
+    });
+
+    return listaProdutoFiltrado;
+}
+
+function isProdutoFoiEncontrado(produto, nomeProduto) {
+    let filtroRegex = new RegExp('[a-zA-Z ]*' + nomeProduto, 'i', 'g');
+
+    if (produto.name.search(filtroRegex) === -1) {
+        return false
+    } else if ((produto.name.toLowerCase().indexOf(nomeProduto.toLowerCase()) === -1)) {
+        return false;
+    }
+
+    return true;
+}
+
+function isProdutoEstocado(produto, somenteEmEstoquefiltro) {
+    if (!produto.stocked && somenteEmEstoquefiltro) {
+        return false;
+    }
+
+    return true;
+}
+
+function isProdutoNaMesmaCategoria(product, lastCategory) {
+    if (product.category !== lastCategory) {
+        return false;
+    }
+
+    return true;
+}
+
+function adicionarNovaCategoria(listaProduto, product) {
+    listaProduto.push(
+        <ProductCategoryRow
+            category={product.category}
+            key={product.category}
+        />
+    );
+}
+
+function adicionarNovoProduto(listaProduto, product) {
+    listaProduto.push(
+        <ProductRow
+            key={product.name}
+            product={product}
+        />
+    );
 }

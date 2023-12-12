@@ -1,42 +1,44 @@
 import React from 'react';
 
-export class SearchBar extends React.Component {
-    constructor(props){
+export default class SearchBar extends React.Component {
+    constructor(props) {
         super(props);
 
-        // Aqui utiliza o conceito de componentes controlados
-        // fazendo o bind dentro do construtor
-        this.handleTemNoEstoque = this.handleTemNoEstoque.bind(this);
-        this.handleTextoFiltrado = this.handleTextoFiltrado.bind(this);
+        this.somenteEmEstoqueChange = this.somenteEmEstoqueChange.bind(this);
+        this.textoParaFitlrarChange = this.textoParaFitlrarChange.bind(this);
     }
 
-    // Aqui define o método que vai manipular a prop onNoEstoqueChange
-    handleTemNoEstoque(e){
-        this.props.onTemNoEstoqueChange(e.target.checked);
+    somenteEmEstoqueChange(e) {
+        this.props.onSomenteEmEstoqueChange(e.target.checked);
     }
-    
-    // Define prop onTextoParaFiltrarChange
-    handleTextoFiltrado(e){
-        this.props.onTextoParaFiltrarChange(e.target.value);
+
+    textoParaFitlrarChange(e) {
+        this.props.onNomeProdutoParaFiltrarChange(e.target.value);
     }
-    
+
     render() {
         return (
             <form style={{ border: '2px solid green' }}>
                 <input
-                    type="text"
+                    onChange={this.textoParaFitlrarChange}
                     placeholder="Search..."
-                    value={this.props.value}
-                    onChange={this.handleTextoFiltrado} />
-                <p>
+                    type="text"
+                    value={this.props.nomeProduto}
+                />
+
+                <Paragraph>
                     <input
+                        checked={this.props.somenteEmEstoque}
+                        onChange={this.somenteEmEstoqueChange}
                         type="checkbox"
-                        checked={this.props.checked}
-                        onChange={this.handleTemNoEstoque} />
-                    {' '}
-                    Only show products in stock
-                </p>
+                    />
+                    {' '} Only show products in stock
+                </Paragraph>
             </form>
         );
     }
+}
+
+function Paragraph({ children }) {
+    return <p>{children}</p>
 }

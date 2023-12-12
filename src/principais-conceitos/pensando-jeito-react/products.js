@@ -1,4 +1,4 @@
-export const PRODUCTS = [
+const products = [
     { category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football' },
     { category: 'Sporting Goods', price: '$19.99', stocked: true, name: 'Baseball' },
     { category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball' },
@@ -11,3 +11,5 @@ export const PRODUCTS = [
     { category: 'Electronics', price: '$777.00', stocked: false, name: 'Smart TV' },
     { category: 'Electronics', price: '$988.00', stocked: true, name: 'Notebook Lenovo' },
 ];
+
+export default products;

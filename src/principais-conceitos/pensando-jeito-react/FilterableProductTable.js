@@ -1,47 +1,51 @@
 import React from 'react';
 
-import { ProductTable } from './ProductTable';
-import { SearchBar } from './SearchBar';
+import ProductTable from './ProductTable';
+import SearchBar from './SearchBar';
 
-import { PRODUCTS } from './productList';
 import './styles.css';
+import productsMock from './products';
 
 export default class FilterableProductTable extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            textoParaFiltrar: '',
-            temNoEstoque: false
+            nomeProdutoParaFiltrar: '',
+            somenteEmEstoque: false,
         }
-        this.handleTemNoEstoque = this.handleTemNoEstoque.bind(this);
-        this.handleTextoParaFiltrar = this.handleTextoParaFiltrar.bind(this);
+
+        this.nomeProdutoParaFiltrarChange = this.nomeProdutoParaFiltrarChange.bind(this);
+        this.somenteEmEstoqueChange = this.somenteEmEstoqueChange.bind(this);
     }
 
-    handleTextoParaFiltrar(texto) {
+    nomeProdutoParaFiltrarChange(nome) {
         this.setState({
-            textoParaFiltrar: texto
+            nomeProdutoParaFiltrar: nome
         })
     }
-
-    // dessa maneira também funciona???? Sim. 100 %; 
-    handleTemNoEstoque() {
-        this.setState(n => ({
-            temNoEstoque: !n.temNoEstoque
+    
+    somenteEmEstoqueChange() {
+        this.setState(state => ({
+            somenteEmEstoque: !state.somenteEmEstoque
         }))
     }
 
     render() {
         return (
-            //definindo as propriedades css aqui mesmo. tem autocomplete de código.
             <div className='meuStyle'>
                 <SearchBar
-                    value={this.state.textoParaFiltrar}
-                    onTemNoEstoqueChange={this.handleTemNoEstoque}
-                    onTextoParaFiltrarChange={this.handleTextoParaFiltrar} />
-                {/* o array de produtos deve vim de fora do componente */}
-                <ProductTable products={PRODUCTS}
-                    checked={this.state.temNoEstoque}
-                    textoParaFiltrar={this.state.textoParaFiltrar} />
+                    nomeProduto={this.state.nomeProdutoParaFiltrar}
+                    onSomenteEmEstoqueChange={this.somenteEmEstoqueChange}
+                    onNomeProdutoParaFiltrarChange={this.nomeProdutoParaFiltrarChange}
+                    somenteEmEstoque={this.somenteEmEstoque}
+                />
+
+                <ProductTable
+                    nomeProduto={this.state.nomeProdutoParaFiltrar}
+                    products={productsMock}
+                    somenteEmEstoque={this.state.somenteEmEstoque}
+                />
             </div>
         );
     }
