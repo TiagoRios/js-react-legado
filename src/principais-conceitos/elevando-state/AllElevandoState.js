@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 
-import Titulo from "../../utils-components/Titulo";
-import Calculator from "./Calculator";
 import BoilingVerdict from "./BoilingVerdict";
+import Calculator from "./Calculator";
+import Header from "../../utils-components/Header";
 import TemperatureInput from "./TemperatureInput";
 
 export default function AllElevandoState() {
@@ -13,22 +13,25 @@ export default function AllElevandoState() {
     }
 
     return (<>
+        <Header title="TemperatureInput.js" />
+        <TemperatureInput
+            onChange={handleTemperaturaClick}
+            scale='fahrenheit'
+            temperature={temperatura}
+        />
+        valor input: {temperatura && temperatura}
 
-        <Titulo title="TemperatureInput.js"
-            component={<>
-                <TemperatureInput
-                    scale='fahrenheit'
-                    temperature={temperatura}
-                    onChange={handleTemperaturaClick} />
-                valor input: {temperatura && temperatura}
-            </>}
+        <Header title="BoilingVerdict.js" />
+        <BoilingVerdict
+            scale="celsius"
+            temperature="100"
+        />
+        <BoilingVerdict
+            scale="celsius"
+            temperature="99"
         />
 
-        <Titulo title="BoilingVerdict.js" component={<>
-            <BoilingVerdict scale="celsius" temperature="100" />
-            <BoilingVerdict scale="celsius" temperature="99" />
-        </>} />
-
-        <Titulo title="Calculator.js" component={<Calculator />} />
+        <Header title="Calculator.js" />
+        <Calculator />
     </>)
 }

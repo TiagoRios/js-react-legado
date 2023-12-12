@@ -1,31 +1,32 @@
 import React from "react";
+
 import BoilingVerdict from "./BoilingVerdict";
 import TemperatureInput from "./TemperatureInput";
 
-/**
- * O estado dos outros componentes foram elevados para o componente acima.
- */
 export default class Calculator extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            scale: 'celsius',
+            temperature: '',
+        };
+
         this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
         this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this);
-        this.state = {
-            temperature: '',
-            scale: 'celsius'
-        };
     }
 
     handleCelsiusChange(temperature) {
         this.setState({ scale: 'celsius', temperature });
     }
+
     handleFahrenheitChange(temperature) {
         this.setState({ scale: 'fahrenheit', temperature });
     }
 
     render() {
-        const temperature = this.state.temperature;
         const scale = this.state.scale;
+        const temperature = this.state.temperature;
 
         const celsius = scale === 'fahrenheit'
             ? tryConvert(temperature, toCelsius)
@@ -37,14 +38,21 @@ export default class Calculator extends React.Component {
 
         return (
             <div>
-                <TemperatureInput scale='celsius'
+                <TemperatureInput
+                    onChange={this.handleCelsiusChange}
+                    scale='celsius'
                     temperature={celsius}
-                    onChange={this.handleCelsiusChange} />
-                <TemperatureInput scale='fahrenheit'
-                    temperature={fahrenheit}
-                    onChange={this.handleFahrenheitChange} />
+                />
 
-                <BoilingVerdict scale={scale} temperature={parseFloat(temperature)} />
+                <TemperatureInput
+                    onChange={this.handleFahrenheitChange}
+                    scale='fahrenheit'
+                    temperature={fahrenheit}
+                />
+
+                <BoilingVerdict
+                    scale={scale}
+                    temperature={parseFloat(temperature)} />
             </div>
         );
     }
@@ -59,11 +67,14 @@ function toFahrenheit(celsius) {
 }
 
 function tryConvert(temperature, convert) {
-    const input = parseFloat(temperature);
-    if (Number.isNaN(input)) {
+    const temperatureFloat = parseFloat(temperature);
+
+    if (Number.isNaN(temperatureFloat)) {
         return '';
     }
-    const output = convert(input);
-    const rounded = Math.round(output * 1000) / 1000;
+
+    const convertResult = convert(temperatureFloat);
+    const rounded = Math.round(convertResult * 1000) / 1000;
+
     return rounded.toString();
 }

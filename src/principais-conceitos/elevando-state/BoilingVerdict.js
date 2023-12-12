@@ -1,13 +1,15 @@
-/**
- * Função que verifica se a temperatura é capaz de ferver a água
- * @returns um compenente paragrafo com a resposta se ferve ou não.
- */
 export default function BoilingVerdict({ scale, temperature }) {
+  return isAguaFerve(scale, temperature) ?
+    <p style={{ color: "red" }}>A água ferveria.</p> :
+    <p style={{ color: "yellow" }}>A água não ferveria.</p>;
+}
 
-  if ((scale === 'celsius' && temperature >= 100) ||
-    (scale === 'fahrenheit' && temperature >= 212)) {
-    return <p style={{color:"red"}}>A água ferveria.</p>;
-  } else {
-    return <p style={{color:"yellow"}}>A água não ferveria.</p>;
+function isAguaFerve(scale, temperature) {
+  if (scale === 'celsius' && temperature >= 100) {
+    return true;
+  } else if (scale === 'fahrenheit' && temperature >= 212) {
+    return true;
   }
+
+  return false;
 }

@@ -1,14 +1,11 @@
 import React from "react";
 
-// usado para nome propriedade computada dinamicamente.
-const scaleNames = {
-    celsius: 'Celsius',
-    fahrenheit: 'Fahrenheit'
-};
+import scaleNames from "./scales";
 
 export default class TemperatureInput extends React.Component {
     constructor(props) {
         super(props);
+
         this.handleChange = this.handleChange.bind(this);
     }
 
@@ -17,13 +14,19 @@ export default class TemperatureInput extends React.Component {
     }
 
     render() {
-        const temperature = this.props.temperature;
         const scale = this.props.scale;
+        const temperature = this.props.temperature;
+
         return (
             <fieldset>
-                <legend>Informe a temperatura em {scaleNames[scale]}:</legend>
-                <input value={temperature}
-                    onChange={this.handleChange} />
+                <legend>
+                    Informe a temperatura em {scaleNames[scale]}:
+                </legend>
+
+                <input
+                    onChange={this.handleChange}
+                    value={temperature}
+                />
             </fieldset>
         );
     }
