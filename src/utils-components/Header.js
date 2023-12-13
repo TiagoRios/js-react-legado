@@ -16,7 +16,7 @@ export default function Header({ title, level }) {
             )
         case 3:
             return (
-                <h3 style={{ color: "magenta" }}>
+                <h3 style={{ color: "yellow" }}>
                     {title}
                 </h3>
             )

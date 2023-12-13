@@ -1,33 +1,46 @@
-import Titulo from "../../utils-components/Titulo";
-import HeaderH2 from "../../utils-components/HeaderH2";
+import React, { Fragment } from "react";
+import Header from "../../utils-components/Header";
 
-import EntradaDeTexto from "./focar-no-input/EntradeDeTexto";
-import EntradaDeTextoRevisao1 from "./focar-no-input/EntradeDeTextoRevisao1";
-import EntradaDeTextoRevisaoComponentePai from "./focar-no-input/EntradeDeTextoRevisao2";
-
-import ExemploDeBlur from "./problema-a11y/ExemploDeBlur";
-import ClickForaExemplo from "./problema-a11y/ClickForaExemplo";
-
-import Glossario, { Glossario2, arrItem } from "./uso-fragments/Glossario";
+import glossarioList from "./acessibilityGlossarioList";
 
 export default function AllAcessibility() {
+    return (
+        glossarioList.map((conteudo) => {
+            return (
+                <Fragment key={conteudo.titulo}>
+                    <Header
+                        level={1}
+                        title={conteudo.titulo}
+                    />
+
+                    <ConteudoList conteudos={conteudo.subConteudos} />
+                </Fragment>
+            )
+        })
+    )
+}
+
+function ConteudoList({ conteudos, level }) {
+    return (
+        conteudos.map(sub => {
+            return (
+                <Conteudo
+                    conteudo={sub}
+                    key={sub.titulo}
+                    level={level}
+                />
+            )
+        })
+    )
+}
+
+function Conteudo({ conteudo, level }) {
     return (<>
-        <HeaderH2>Controle do foco</HeaderH2>
-        <Titulo title="EntradaDeTexto.js" component={<EntradaDeTexto />} />
-        <Titulo title="EntradaDeTextoRevisão1.js" component={<EntradaDeTextoRevisao1 />} />
-        <Titulo title="EntradaDeTextoRevisão2.js" component={<EntradaDeTextoRevisaoComponentePai />} />
+        <Header
+            level={level}
+            title={conteudo.titulo}
+        />
 
-        <HeaderH2>Problema acessibility (a11y)</HeaderH2>
-        <Titulo title="ClickForaExemplo.js - problema" component={<>
-            <ClickForaExemplo /><ClickForaExemplo /><ClickForaExemplo />
-        </>} />
-        <Titulo title="ExemploDeBlur.js - solução" component={<>
-            <ExemploDeBlur /><ExemploDeBlur /><ExemploDeBlur />
-        </>} />
-
-        <HeaderH2>Fragments</HeaderH2>
-        <Titulo title="Glossario.js" component={<>
-            <Glossario /><Glossario2 items={arrItem} />
-        </>} />
+        {conteudo.componente}
     </>)
 }
