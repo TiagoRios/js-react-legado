@@ -1,13 +1,11 @@
 import React from "react";
-//Utiliza pseudo-class :focus para modificar a cor do outline dos inputs
 import './entradaDeTexto.css'
+import Header from "../../../utils-components/Header";
 
-// define a 'ref' no construtor: this.inputDeTexto = React.createRef();
-// usa a 'ref' na função manipuladora: this.inputTexto.current.focus();
 export default class EntradaDeTexto extends React.Component {
     constructor(props) {
         super(props);
-        // Cria um ref para guardar o inputDeTexto no DOM
+
         this.inputDeLogin = React.createRef();
         this.inputDeSenha = React.createRef();
 
@@ -15,85 +13,92 @@ export default class EntradaDeTexto extends React.Component {
         this.handleFocusSenha = this.handleFocusSenha.bind(this);
     }
 
-    handleFocusLogin() {
+    handleFocusLogin(e) {
+        e.preventDefault();
         this.inputDeLogin.current.focus();
     }
 
-    handleFocusSenha() {
+    handleFocusSenha(e) {
+        e.preventDefault();
         this.inputDeSenha.current.focus();
     }
 
     render() {
-        return (
-            // ou com ref utilizando React.forwardRef((props, ref)=>())
-            // <Form ref={{ //esse ref é do componente definido com a instrução acima.
-            <Form refe={{
-                inputDeLogin: this.inputDeLogin,
-                inputDeSenha: this.inputDeSenha,
-            }}
+        return (<>
+            < Header title="Componente usando classe" level={3} />
+            <FormSintaxClasse
                 onClick={{
                     login: this.handleFocusLogin,
-                    senha: this.handleFocusSenha
+                    senha: this.handleFocusSenha,
                 }}
+                refe={{ inputDeLogin: this.inputDeLogin, }}
             />
+
+            < Header title="Componente usando forwardRef" level={3} />
+            <FormSintaxForwardRef
+                onClick={{
+                    login: this.handleFocusLogin,
+                    senha: this.handleFocusSenha,
+                }}
+                ref={{ inputDeSenha: this.inputDeSenha, }}
+            />
+        </>
         );
     }
 }
 
-// Sem utilizar React.forwarRef
-class Form extends React.Component {
+class FormSintaxClasse extends React.Component {
     render() {
-        /*
+
         // You can’t specify pseudo-classes using inline styles. 
         // That means :hover, :focus, :active, or :visited 
         // go out the window rather than the component.
-
         // Also, you can’t specify media queries for responsive styling. 
-        // Let’s consider another way to style your React app.
-
-        // Use a `ref` callback para guardar a referencia do texto no input dentro do DOM 
-        // elemento em um campo (por exemplo, this.inputDeTexto).
-        */
         return (<>
             <form>
-                <label htmlFor='loginId' name='labelLogin'>Insira o login:</label><br />
-                <input id='loginId' name="login"
-                    type="text"
-                    // olha o tamanho dessa instrução.
-                    // outra maneira com seria 'ref.inputDeLogin' com forwardRef.
+                <input
+                    id='loginId'
+                    name="login"
+                    placeholder="Insira o Login"
                     ref={this.props.refe.inputDeLogin}
-                /><br />
-                <label htmlFor='senhaId' name='labelSenha'>Insira a senha:</label><br />
-                <input id='senhaId' name="senha"
-                    type="password"
-                    ref={this.props.refe.inputDeSenha}
-                /><br />
-                {/* recebendo um objeto com dois tipos de onClick */}
-                <input type='button' value='foco login' onClick={this.props.onClick.login} />
-                <input type='button' value='foco senha' onClick={this.props.onClick.senha} />
+                    type="text"
+                />
+
+                <ControlesFoco onClicks={{
+                    login: this.props.onClick.login,
+                    senha: this.props.onClick.senha,
+                }} />
             </form>
         </>)
     }
 }
 
-// Essa forma utilizando encaminhamento de ref também funciona com componentes de classe.
-// Veja guias avançados: encaminhamento de refs. para entender.
-// const Form = React.forwardRef((props, ref) => (
-//     <><h4>Entrada de texto</h4>
-//         <form>
-//             <label htmlFor='loginId' name='labelLogin'>Insira o login:</label><br />
-//             <input id='loginId' name="login"
-//                 type="text"
-//                 ref={ref.inputDeLogin}
-//             /><br />
-//             <label htmlFor='senhaId' name='labelSenha'>Insira a senha:</label><br />
-//             <input id='senhaId' name="senha"
-//                 type="password"
-//                 ref={ref.inputDeSenha}
-//             /><br />
-//             {/* recebendo um objeto com dois tipos de onClick */}
-//             <input type='button' value='foco login' onClick={props.onClick.login} />
-//             <input type='button' value='foco senha' onClick={props.onClick.senha} />
-//         </form>
-//     </>
-// ))
+const FormSintaxForwardRef = React.forwardRef((props, ref) => (
+    <form>
+        <input
+            id='senhaId'
+            name="senha"
+            placeholder="Insira a Senha"
+            ref={ref.inputDeSenha}
+            type="password"
+        />
+
+        <ControlesFoco onClicks={{
+            login: props.onClick.login,
+            senha: props.onClick.senha,
+        }} />
+    </form>
+))
+
+function ControlesFoco({ onClicks }) {
+    return (<>
+        <button onClick={onClicks.login}>
+            Foque no login
+        </button>
+
+        <button onClick={onClicks.senha} >
+            Foque na senha
+        </button>
+    </>)
+
+}
