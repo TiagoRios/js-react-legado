@@ -4,20 +4,27 @@ const estilo = {
     display: "inline"
 }
 
-export default function TituloMaisToggle({ nome, componente }) {
-    let [mostrar, setMostrar] = React.useState(false);
+export default function TituloMaisToggle({ titulo, children }) {
+    let [exibirConteudo, setExibirConteudo] = React.useState(false);
 
-    function handleMostrarClick() {
-        setMostrar(!mostrar);
+    function handleExibirConteudoClick() {
+        setExibirConteudo(!exibirConteudo);
     }
 
-    return (<div style={{display:"block"}}>
-        <h2 style={estilo}>{nome}</h2>
-        <button
-            style={estilo}
-            onClick={handleMostrarClick}>{mostrar ? "Esconder" : "Mostrar"}</button>
+    return (
+        <div style={{ display: "block" }}>
+            <h2 style={estilo}>
+                {titulo}
+            </h2>
 
-        {mostrar && componente}
-    </div>
+            <button
+                onClick={handleExibirConteudoClick}
+                style={estilo}
+            >
+                {exibirConteudo ? "Esconder" : "Exibir"}
+            </button>
+
+            {exibirConteudo && children}
+        </div>
     )
 }
