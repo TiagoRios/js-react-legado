@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import Header from "../../utils-components/Header";
 
-import glossarioList from "./acessibilityGlossarioList";
+import conteudoList from "./acessibilityConteudoList";
 
 export default function AllAcessibility() {
     return (
-        glossarioList.map((conteudo) => {
+        conteudoList.map((conteudo) => {
             return (
                 <Fragment key={conteudo.titulo}>
                     <Header

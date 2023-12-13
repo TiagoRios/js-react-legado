@@ -10,7 +10,7 @@ import {
 
 import itemList from "./uso-fragments/itemList";
 
-const acessibilityGlossarioList = [
+const acessibilityConteudoList = [
   {
     titulo: 'Controle do foco',
     subConteudos: [
@@ -63,4 +63,4 @@ const acessibilityGlossarioList = [
   },
 ]
 
-export default acessibilityGlossarioList;
+export default acessibilityConteudoList;
