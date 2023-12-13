@@ -1,11 +1,11 @@
-import ClickForaExemplo from "./problema-a11y/ClickForaExemplo";
 import EntradaDeTexto from "./focar-no-input/EntradeDeTexto";
 import EntradaDeTextoRevisao1 from "./focar-no-input/EntradeDeTextoRevisao1";
-import ExemploDeBlur from "./problema-a11y/ExemploDeBlur";
 import {
   GlossarioSintaxClasse,
   GlossarioSintaxFunction,
 } from "./uso-fragments/Glossario";
+import ProblemaAcessibilidade from "./problema-a11y/ProblemaAcessibilidade";
+import SolucaoAcessibilidade from "./problema-a11y/SolucaoAcessibilidade";
 
 import itemList from "./uso-fragments/itemList";
 
@@ -27,19 +27,19 @@ const acessibilityConteudoList = [
     titulo: 'Problema acessibility (a11y)',
     subConteudos: [
       {
-        titulo: "ClickForaExemplo.js - problema",
+        titulo: "ProblemaAcessibilidade.js",
         componente: <>
-          <ClickForaExemplo />
-          <ClickForaExemplo />
-          <ClickForaExemplo />
+          <ProblemaAcessibilidade />
+          <ProblemaAcessibilidade />
+          <ProblemaAcessibilidade />
         </>
       },
       {
-        titulo: "ExemploDeBlur.js - solução",
+        titulo: "SolucaoAcessibilidade.js",
         componente: <>
-          <ExemploDeBlur />
-          <ExemploDeBlur />
-          <ExemploDeBlur />
+          <SolucaoAcessibilidade />
+          <SolucaoAcessibilidade />
+          <SolucaoAcessibilidade />
         </>
       },
     ]
