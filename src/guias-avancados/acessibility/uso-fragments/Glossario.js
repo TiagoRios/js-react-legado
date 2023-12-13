@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react";
 import Header from "../../../utils-components/Header";
 
 export class GlossarioSintaxClasse extends React.Component {
