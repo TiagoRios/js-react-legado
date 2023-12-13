@@ -1,7 +1,6 @@
 import ClickForaExemplo from "./problema-a11y/ClickForaExemplo";
 import EntradaDeTexto from "./focar-no-input/EntradeDeTexto";
 import EntradaDeTextoRevisao1 from "./focar-no-input/EntradeDeTextoRevisao1";
-import EntradaDeTextoRevisaoComponentePai from "./focar-no-input/EntradeDeTextoRevisao2";
 import ExemploDeBlur from "./problema-a11y/ExemploDeBlur";
 import {
   GlossarioSintaxClasse,
@@ -21,10 +20,6 @@ const acessibilityConteudoList = [
       {
         titulo: "EntradaDeTextoRevisão1.js",
         componente: <EntradaDeTextoRevisao1 />
-      },
-      {
-        titulo: "EntradaDeTextoRevisão2.js",
-        componente: < EntradaDeTextoRevisaoComponentePai />
       },
     ]
   },
