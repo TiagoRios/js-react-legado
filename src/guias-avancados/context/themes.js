@@ -1,4 +1,4 @@
-export const theme = {
+const theme = {
     dark: {
         backgroundColor: 'black',
         padding: '10px',
@@ -21,3 +21,5 @@ export const theme = {
         borderRadius: '20px'
     }
 }
+
+export default theme;

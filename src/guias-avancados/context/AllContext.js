@@ -1,17 +1,27 @@
-import Titulo from "../../utils-components/Titulo";
+import Header from "../../utils-components/Header";
 
-import AppSemContext from "./conteudo-site/AppSemContexto";
-import AppComContextoClass from "./conteudo-site/AppComContextoClass";
-import AppComContextoFunction from "./conteudo-site/AppComContextoFunction";
-import AppContextoAninhado from "./contexto-componente-aninhado/AppContextoAninhado";
-import AppConsumindoVariosContextos from "./consumindo-varios-contextos/AppConsumindoVariosContextos";
+// Ordem de estudo
+import SemContext from "./contexto/SemContexto";
+import ContextoClass from "./contexto/ContextoClass";
+import ContextoFunction from "./contexto/ContextoFunction";
+import ContextoAninhado from "./contexto-aninhado/ContextoAninhado";
+import ConsumindoContextos from "./consumindo-contextos/ConsumindoContextos";
 
 export default function AllContext() {
     return (<>
-        <Titulo title="AppSemContext.js" component={<AppSemContext />} />
-        <Titulo title="AppComContextoClass.js" component={<AppComContextoClass />} />
-        <Titulo title="AppComContextoFunction.js" component={<AppComContextoFunction />} />
-        <Titulo title="AppContextoAninhado.js" component={<AppContextoAninhado />} />
-        <Titulo title="AppConsumindoVariosContextos.js" component={<AppConsumindoVariosContextos />} />
+        <Header title="SemContext.js" />
+        <SemContext />
+
+        <Header title="ContextoClass.js" />
+        <ContextoClass />
+
+        <Header title="ContextoFunction.js" />
+        <ContextoFunction />
+
+        <Header title="ContextoAninhado.js" />
+        <ContextoAninhado />
+
+        <Header title="ConsumindoContextos.js" />
+        <ConsumindoContextos />
     </>)
 }

@@ -1,27 +1,29 @@
 import React from "react";
 
+// Normalmente em arquivo separado.
 const MyContext = React.createContext('valorPadrao')
 
-// Exte exemplo não renderiza. apenas para exemplificação onde usar this.context.
-// Posso utiliza o this.context dentro dos metodos de ciclo de vida do compoente.
-class MyClass extends React.Component {
+class Contexto extends React.Component {
+    // static contextType = MyContext; // Maneira 1 de configurar contexto
+
     componentDidMount() {
         console.log('didMount: ' + this.context);
     }
+
     componentDidUpdate() {
         console.log('didUpdate: ' + this.context);
     }
+
     componentWillUnmount() {
         console.log('didUnmount: ' + this.context);
     }
 
-    // poderia utilizar static em campo de classe ES
-    static contextType = MyContext;
     render() {
         return (
-            // pega o valor dentro do contexto criado.
+            // disponível depois de configurar o contexto
             <h1>{this.context}</h1>
         )
     }
 }
-MyClass.contextType = MyContext; // escolher um dos 2 jeitos.
+
+Contexto.contextType = MyContext; // Maneira 2 de configurar contexto
