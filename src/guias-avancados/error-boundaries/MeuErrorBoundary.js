@@ -10,7 +10,7 @@ import React from "react";
 
 // Não esta funcionando chamar os dois metodos ao mesmo tempo. 
 // componente não renderiza. propriedade fica undefined
-export class MeuErrorBoundary extends React.Component {
+export default class MeuErrorBoundary extends React.Component {
     constructor(props) {
         super(props);
         // propriedade utilizada para fins de debbuging, normalmente o nome é inferido automaticamente.
