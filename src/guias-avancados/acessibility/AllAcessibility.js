@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
+import ConteudoList from "../../utils-components/ConteudoList";
 import Header from "../../utils-components/Header";
 
-import conteudoList from "./acessibilityConteudoList";
+import acessibilityConteudoList from "./acessibilityConteudoList";
 
 export default function AllAcessibility() {
     return (
-        conteudoList.map((conteudo) => {
+        acessibilityConteudoList.map((conteudo) => {
             return (
                 <Fragment key={conteudo.titulo}>
                     <Header
@@ -18,29 +19,4 @@ export default function AllAcessibility() {
             )
         })
     )
-}
-
-function ConteudoList({ conteudos, level }) {
-    return (
-        conteudos.map(sub => {
-            return (
-                <Conteudo
-                    conteudo={sub}
-                    key={sub.titulo}
-                    level={level}
-                />
-            )
-        })
-    )
-}
-
-function Conteudo({ conteudo, level }) {
-    return (<>
-        <Header
-            level={level}
-            title={conteudo.titulo}
-        />
-
-        {conteudo.componente}
-    </>)
 }
