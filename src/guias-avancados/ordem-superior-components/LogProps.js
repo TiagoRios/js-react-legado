@@ -1,6 +1,7 @@
 import React from "react";
-import { ComponentRenderizaFancyButton }  from "../dom-components/FancyButton";
+import FancyButtonForwardRef from "../forward-refs/dom-components/FancyButtonForwardRef";
 
+// Não é componente.
 function umlogProps(WrappedComponent) {
   class LogProps extends React.Component {
     componentDidUpdate(prevProps) {
@@ -16,4 +17,4 @@ function umlogProps(WrappedComponent) {
   return LogProps;
 }
 
-export default umlogProps(ComponentRenderizaFancyButton)
+export default umlogProps(FancyButtonForwardRef);
