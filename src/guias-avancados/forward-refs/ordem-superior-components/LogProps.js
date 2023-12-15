@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentRenderizaFancyButton }  from "../componentes-dom/FancyButton";
+import { ComponentRenderizaFancyButton }  from "../dom-components/FancyButton";
 
 function umlogProps(WrappedComponent) {
   class LogProps extends React.Component {
