@@ -11,8 +11,10 @@ export default function TituloMaisToggle({ titulo, children }) {
         setExibirConteudo(!exibirConteudo);
     }
 
+    // TODO: Aplicador novo layout de apresentação.
     return (
         <div style={{ display: "block" }}>
+            <br />
             <h2 style={estilo}>
                 {titulo}
             </h2>
