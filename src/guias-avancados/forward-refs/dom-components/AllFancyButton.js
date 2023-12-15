@@ -2,22 +2,23 @@ import React from "react";
 
 import FancyButtonForwardRef from "./FancyButtonForwardRef";
 import FancyButtonFunction from "./FancyButtonFunction";
+import Header from "../../../utils-components/Header";
 
-export function AllFancyButton(props) {
+export default function AllFancyButton(props) {
   return (
     <div>
+      <Header title={"FancyButtonForwardRef.js"} />
       <FancyButtonForwardRef
         ref={React.createRef()}
-        enunciado='meu enunciado.'
       >
-        React.forwarRef - ref
+        Botão forwarRef
       </FancyButtonForwardRef>
 
+      <Header title={"FancyButtonFunction.js"} />
       <FancyButtonFunction
         referencia={React.createRef()}
-        enunciado='meu enunciado.'
       >
-        Function - props
+        Botão Function
       </FancyButtonFunction>
     </div>
   )
