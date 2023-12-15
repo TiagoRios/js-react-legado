@@ -10,7 +10,7 @@ function umlogProps(WrappedComponent) {
     }
 
     render() {
-      return <WrappedComponent {...this.props} />;
+      return <WrappedComponent {...this.props} >Ordem superior</WrappedComponent>;
     }
   }
 
